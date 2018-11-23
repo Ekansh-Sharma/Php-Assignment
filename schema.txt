@@ -1,0 +1,30 @@
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS quiz;
+DROP TABLE IF EXISTS question;
+DROP TABLE IF EXISTS answer;
+
+DROP TABLE IF EXISTS repo;
+CREATE TABLE repo (
+   repo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   repo_name TEXT,
+   repo_full_name TEXT,
+   repo_url TEXT,
+   repo_repo_id INT NOT NULL UNIQUE,
+   repo_stargazers_count INT NOT NULL DEFAULT 0,
+   repo_watchers_count INT NOT NULL DEFAULT 0,
+   repo_forks_count INT NOT NULL DEFAULT 0
+);
+
+DROP TABLE IF EXISTS package;
+CREATE TABLE package (
+   package_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   package_name TEXT,
+   package_version TEXT
+);
+
+DROP TABLE IF EXISTS repo_package;
+CREATE TABLE repo_package (
+   repo_package_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   repo_id INT NOT NULL,
+   package_id INT NOT NULL
+);
