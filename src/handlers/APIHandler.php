@@ -17,7 +17,7 @@ class APIHandler
   //fetches repos based and keyword
   public function repos(string $keyword) {
       $client = new Client();
-      $params = array('q' => $keyword.' in:name ',
+      $params = array('q' => $keyword,
                       'sort' => 'stars',
                       'order' => 'desc');
       $res = $client->get(self::$git_search_endpoint, ['query' => $params]);
